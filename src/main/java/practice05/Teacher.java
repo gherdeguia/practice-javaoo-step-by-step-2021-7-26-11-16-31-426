@@ -1,4 +1,8 @@
 package practice05;
 
-public class Teacher {
+public class Teacher extends Person {
+
+    public Teacher(String name, int age) {
+        super(name, age);
+    }
 }
