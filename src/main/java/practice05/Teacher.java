@@ -20,7 +20,7 @@ public class Teacher extends Person {
         if(this.klass != null){
             return "My name is "+super.name+". I am "+super.age+" years old. I am a Teacher. I teach Class "+this.klass+".";
         }else{
-            return "My name is "+super.name+". I am "+super.age+" years old. I teach No Class.";
+            return "My name is "+super.name+". I am "+super.age+" years old. I am a Teacher. I teach No Class." ;
         }
 
         //>My name is Tom. I am 21 years old. I am a Teacher. I teach No Class.
