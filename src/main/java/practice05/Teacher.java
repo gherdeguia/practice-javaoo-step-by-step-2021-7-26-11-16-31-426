@@ -12,19 +12,16 @@ public class Teacher extends Person {
         this.klass = klass;
     }
 
+    public int getKlass(){
+        return this.klass;
+    }
 
     @Override
     public String introduce(){
-        //return "I am a Student. I am at Class "+this.klass+".";
-        //return "My name is "+super.name+". I am "+super.age+" years old. I am a Student. I am at Class "+this.klass+".";
         if(this.klass != null){
-            return "My name is "+super.name+". I am "+super.age+" years old. I am a Teacher. I teach Class "+this.klass+".";
+            return "My name is "+super.getName()+". I am "+super.getAge()+" years old. I am a Teacher. I teach Class "+this.klass+".";
         }else{
-            return "My name is "+super.name+". I am "+super.age+" years old. I am a Teacher. I teach No Class." ;
+            return "My name is "+super.getName()+". I am "+super.getAge()+" years old. I am a Teacher. I teach No Class." ;
         }
-
-        //>My name is Tom. I am 21 years old. I am a Teacher. I teach No Class.
-        //>My name is Tom. I am 21 years old. I am a Teacher. I teach Class 2.
-
     }
 }
