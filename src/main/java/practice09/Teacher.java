@@ -38,13 +38,10 @@ public class Teacher extends Person {
     @Override
     public String introduce() {
         if (this.LLKlass != null) {
-            //return setIntroductionString() + " I teach Class " + + ".";
             return String.format("%s I teach Class %s.", setIntroductionString(), retrieveListItems(this.LLKlass));
         } else {
             return setIntroductionString() + " I teach No Class.";
         }
-
-
     }
 
     public String retrieveListItems(LinkedList<Klass> linkedList) {
@@ -52,12 +49,11 @@ public class Teacher extends Person {
         for (Klass list : linkedList) {
             outputList.append(list.getNumber()).append(", ");
         }
-        /* linkedList.forEach(System.out::print); */
         return outputList.delete(outputList.length() - 2, outputList.length() - 1).toString().trim();
     }
 
     public String introduceWith(Student student) {
-        if (this.klass.getNumber() == student.getKlassNo()) {
+        if (isTeacherSameWithStudentKlass(this.LLKlass, student)) {
             return this.setIntroductionString() + " I teach " + student.getName() + ".";
         } else {
             return this.setIntroductionString() + " I don't teach " + student.getName() + ".";
@@ -76,6 +72,15 @@ public class Teacher extends Person {
     public boolean isTeaching(Student student) {
         for (Klass list : this.LLKlass) {
             if (list.getNumber() == student.getKlassNo()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isTeacherSameWithStudentKlass(LinkedList<Klass> linkedList, Student student) {
+        for (Klass klasses : linkedList) {
+            if (klasses.getNumber() == student.getKlassNo()) {
                 return true;
             }
         }
