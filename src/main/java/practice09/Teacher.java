@@ -38,13 +38,13 @@ public class Teacher extends Person {
     @Override
     public String introduce() {
         if (this.LLKlass != null) {
-            return String.format("%s I teach Class %s.", setIntroductionString(), retrieveListItems(this.LLKlass));
+            return String.format("%s I teach Class %s.", setIntroductionString(), retrieveKlassList(this.LLKlass));
         } else {
             return setIntroductionString() + " I teach No Class.";
         }
     }
 
-    public String retrieveListItems(LinkedList<Klass> linkedList) {
+    public String retrieveKlassList(LinkedList<Klass> linkedList) {
         StringBuilder outputList = new StringBuilder();
         for (Klass list : linkedList) {
             outputList.append(list.getNumber()).append(", ");
@@ -58,7 +58,6 @@ public class Teacher extends Person {
         } else {
             return this.setIntroductionString() + " I don't teach " + student.getName() + ".";
         }
-
     }
 
     private String setIntroductionString() {
