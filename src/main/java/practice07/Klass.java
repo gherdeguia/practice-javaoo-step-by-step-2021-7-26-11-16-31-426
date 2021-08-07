@@ -17,10 +17,10 @@ public class Klass {
     }
 
     public int getNumber() {
-        return klassNumber;
+        return this.klassNumber;
     }
     public String getDisplayName() {
-        return klassName;
+        return this.klassName;
     }
 
     public void assignLeader(Student student) {

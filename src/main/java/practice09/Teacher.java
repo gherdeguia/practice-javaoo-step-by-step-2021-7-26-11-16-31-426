@@ -1,10 +1,14 @@
 package practice09;
 
 import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Teacher extends Person{
 
     private Klass klass;
+    private LinkedList<Klass> LLKlass;
 
     public Teacher(String name, int age) {
         super(name,age);
@@ -24,6 +28,11 @@ public class Teacher extends Person{
         super(id,name,age);
     }
 
+    public Teacher(int id, String name, int age, LinkedList<Klass> linkedList) {
+        super(id,name,age);
+        this.LLKlass = linkedList;
+    }
+
 
     public Klass getKlass() {
         return this.klass;
@@ -31,11 +40,26 @@ public class Teacher extends Person{
 
     @Override
     public String introduce() {
-        if (this.klass != null) {
-            return setIntroductionString() + " I teach Class " + this.klass.getNumber() + ".";
+        if (this.LLKlass != null) {
+            return setIntroductionString() + " I teach Class " + retrieveListItems(this.LLKlass) + ".";
         } else {
             return setIntroductionString() + " I teach No Class.";
         }
+    }
+
+    public String retrieveListItems(LinkedList<Klass> linkedList){
+        String out = "";
+        for (Klass temp: linkedList) {
+            out += linkedList.element().getNumber()+", ";
+        }
+        return out.trim();
+//
+//        return linkedList.stream()
+//                .reduce("", (current, next) -> current + next);
+//                .collect(Collectors.toList());
+//    }
+//      return linkedList.stream().collect(Collectors.toList()).toString();
+
     }
 
     public String introduceWith(Student student) {
@@ -51,7 +75,7 @@ public class Teacher extends Person{
         return super.introduce() + " I am a Teacher.";
     }
 //
-//    public String getClasses() {
-//        return this.klass.getClass().;
-//    }
+    public LinkedList<Klass> getClasses() {
+        return this.LLKlass;
+    }
 }

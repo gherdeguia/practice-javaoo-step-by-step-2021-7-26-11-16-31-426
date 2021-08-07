@@ -6,6 +6,7 @@ public class Klass {
     private final int klassNumber;
     private final String klassName;
     private Student klassLeader;
+    private Student klassMember;
 
     public Klass(){
         this.klassNumber = 0;
@@ -34,7 +35,8 @@ public class Klass {
     }
 
     public void appendMember(Student student) {
-
+        this.klassMember = student;
     }
+
 
 }

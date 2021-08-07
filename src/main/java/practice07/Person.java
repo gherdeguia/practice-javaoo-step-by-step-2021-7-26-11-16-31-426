@@ -1,5 +1,7 @@
 package practice07;
 
+import java.util.Objects;
+
 public class Person {
     private final String name;
     private final int age;
@@ -29,13 +31,17 @@ public class Person {
         return "My name is "+this.name+". I am "+this.age+" years old.";
     }
 
-    public boolean isEqualTo(Object obj) {
-        if (this == obj) return true;
-
-        if (obj == null || this.getClass() != obj.getClass())
-            return false;
-
-        Person p1 = (Person)obj;
-        return this.ID == p1.ID;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return ID == person.ID;
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ID);
+    }
+
 }
