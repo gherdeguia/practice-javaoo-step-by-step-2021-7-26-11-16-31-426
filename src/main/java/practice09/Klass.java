@@ -1,8 +1,7 @@
 package practice09;
 
+
 public class Klass {
-
-
     private final int klassNumber;
     private final String klassName;
     private Student klassLeader;
@@ -27,7 +26,10 @@ public class Klass {
     }
 
     public void assignLeader(Student student) {
-        this.klassLeader = student;
+        if(student.getKlassNo()==this.klassNumber || this.klassMember == student){
+            this.klassLeader = student;
+        }
+        System.out.print("It is not one of us.\n");
     }
 
     public Student getLeader() {
@@ -37,6 +39,4 @@ public class Klass {
     public void appendMember(Student student) {
         this.klassMember = student;
     }
-
-
 }

@@ -1,9 +1,6 @@
 package practice09;
 
-import java.util.Collection;
 import java.util.LinkedList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class Teacher extends Person{
 
@@ -41,25 +38,22 @@ public class Teacher extends Person{
     @Override
     public String introduce() {
         if (this.LLKlass != null) {
-            return setIntroductionString() + " I teach Class " + retrieveListItems(this.LLKlass) + ".";
+            //return setIntroductionString() + " I teach Class " + + ".";
+            return String.format("%s I teach Class %s.",setIntroductionString(), retrieveListItems(this.LLKlass));
         } else {
             return setIntroductionString() + " I teach No Class.";
         }
+
+
     }
 
     public String retrieveListItems(LinkedList<Klass> linkedList){
-        String out = "";
-        for (Klass temp: linkedList) {
-            out += linkedList.element().getNumber()+", ";
+        StringBuilder outputList = new StringBuilder();
+        for (Klass list: linkedList ) {
+            outputList.append(list.getNumber()).append(", ");
         }
-        return out.trim();
-//
-//        return linkedList.stream()
-//                .reduce("", (current, next) -> current + next);
-//                .collect(Collectors.toList());
-//    }
-//      return linkedList.stream().collect(Collectors.toList()).toString();
-
+        /* linkedList.forEach(System.out::print); */
+        return outputList.delete(outputList.length()-2,outputList.length()-1).toString().trim();
     }
 
     public String introduceWith(Student student) {

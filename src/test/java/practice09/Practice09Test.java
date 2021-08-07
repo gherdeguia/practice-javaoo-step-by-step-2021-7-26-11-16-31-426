@@ -26,14 +26,14 @@ public class Practice09Test {
         assertThat(person.getAge()).isEqualTo(21);
     }
 
-    //
-//    @Test
-//    public void should_person_with_same_id_be_same_one() throws Exception {
-//        Person person1 = new Person(1, "Tom", 21);
-//        Person person2 = new Person(1, "Tom", 21);
-//        assertThat(person1).isEqualTo(person2);
-//    }
-//
+
+    @Test
+    public void should_person_with_same_id_be_same_one() throws Exception {
+        Person person1 = new Person(1, "Tom", 21);
+        Person person2 = new Person(1, "Tom", 21);
+        assertThat(person1).isEqualTo(person2);
+    }
+
     @Test
     public void should_person_have_an_introduce_method_which_introduce_person_with_name_and_age() throws Exception {
         Person tom = new Person(1, "Tom", 21);
@@ -53,21 +53,20 @@ public class Practice09Test {
         assertThat(klass.getDisplayName()).isEqualTo("Class 2");
     }
 
-    //
-//    @Test
-//    public void should_class_not_assign_a_student_as_leader_when_student_is_not_a_member() throws Exception {
-//        Student jerry = new Student(1, "Jerry", 8, new Klass(5));
-//
-//        klass.assignLeader(jerry);
-//
-//        assertThat(systemOut()).isEqualTo("It is not one of us.\n");
-//        assertThat(klass.getLeader()).isNotEqualTo(jerry);
-//    }
-//
-//    private String systemOut() {
-//        return outContent.toString();
-//    }
-//
+    @Test
+    public void should_class_not_assign_a_student_as_leader_when_student_is_not_a_member() throws Exception {
+        Student jerry = new Student(1, "Jerry", 8, new Klass(5));
+
+        klass.assignLeader(jerry);
+
+        assertThat(systemOut()).isEqualTo("It is not one of us.\n");
+        assertThat(klass.getLeader()).isNotEqualTo(jerry);
+    }
+
+    private String systemOut() {
+        return outContent.toString();
+    }
+
     @Test
     public void should_class_assign_a_member_student_as_leader() throws Exception {
         Student jerry = new Student(1, "Jerry", 8, new Klass(5));
@@ -114,15 +113,15 @@ public class Practice09Test {
 
     }
 
-//    @Test
-//    public void should_teacher_introduce_itself_with_which_classes_it_teaches() throws Exception {
-//        LinkedList<Klass> linkedList = new LinkedList<Klass>();
-//        Klass klass3 = new Klass(3);
-//        linkedList.add(klass);
-//        linkedList.add(klass3);
-//        Teacher tom = new Teacher(1, "Tom", 21, linkedList);
-//        assertThat(tom.introduce()).isEqualTo("My name is Tom. I am 21 years old. I am a Teacher. I teach Class 2, 3.");
-//    }
+    @Test
+    public void should_teacher_introduce_itself_with_which_classes_it_teaches() throws Exception {
+        LinkedList<Klass> linkedList = new LinkedList<Klass>();
+        Klass klass3 = new Klass(3);
+        linkedList.add(klass);
+        linkedList.add(klass3);
+        Teacher tom = new Teacher(1, "Tom", 21, linkedList);
+        assertThat(tom.introduce()).isEqualTo("My name is Tom. I am 21 years old. I am a Teacher. I teach Class 2, 3.");
+    }
 
     @Test
     public void should_teacher_introduce_itself_with_no_class_teaching() throws Exception {

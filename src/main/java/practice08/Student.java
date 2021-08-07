@@ -25,7 +25,6 @@ public class Student extends Person{
 
     public int getKlassNo(){ return this.klass.getNumber(); }
 
-
     public String introduceWith(practice06.Student student){
         return this.introduce();
     }
